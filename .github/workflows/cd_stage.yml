@@ -11,5 +11,4 @@ jobs:
       - run:  |
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
           chmod 600 ~/ssh_key
-          echo "yes" | ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@15.206.153.0 -t "cd tec/ && git pull origin main && export PATH=/home/ubuntu/.nvm/versions/node/v24.0.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && npm install -g pnpm && pnpm install && pnpm run build && pm2 restart fe-server
-          && pm2 restart http-server && pm2 restart ws-server"
+          echo "yes" | ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@15.206.153.0 -t "cd tec/ && git pull origin main && export PATH=/home/ubuntu/.nvm/versions/node/v24.0.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && npm install -g pnpm && pnpm install && pnpm run build && pm2 restart fe-server && pm2 restart http-server && pm2 restart ws-server"
